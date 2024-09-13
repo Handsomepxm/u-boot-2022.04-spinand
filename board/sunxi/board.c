@@ -626,7 +626,7 @@ static void sunxi_spl_store_dram_size(phys_addr_t dram_size)
 void sunxi_board_init(void)
 {
 	int power_failed = 0;
-
+	int pin;
 #ifdef CONFIG_LED_STATUS
 	if (IS_ENABLED(CONFIG_SPL_DRIVERS_MISC))
 		status_led_init();
@@ -720,6 +720,10 @@ void sunxi_board_init(void)
 		clock_set_pll1(get_board_sys_clk());
 	else
 		printf("Failed to set core voltage! Can't set CPU frequency\n");
+
+	pin = sunxi_name_to_gpio("PE24");
+	gpio_direction_output(pin, 1);	
+
 }
 #endif
 
@@ -1048,3 +1052,10 @@ int board_fit_config_name_match(const char *name)
 	return ret;
 }
 #endif
+
+
+int board_early_init_f(void)
+{
+	gd->flags |= (GD_FLG_SILENT | GD_FLG_DISABLE_CONSOLE);
+	return 0;
+}

@@ -1,6 +1,6 @@
 split.bin u-boot-sunxi-with-spl.bin 2048 128
 SPL-size 24576
-u-boot-size 424896
+u-boot-size 430572
 block-size 1 KiB
 Page-size 2 KiB
 PEB-size 128 KiB

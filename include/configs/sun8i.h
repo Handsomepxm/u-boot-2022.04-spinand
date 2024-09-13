@@ -37,10 +37,14 @@
                             "mtd read spi-nand0 0x41000000 0x120000 0x500000; " \
                             "bootz 0x41000000 - 0x41800000"
 
+/*
 #define CONFIG_BOOTARGS    "console=ttyS0,115200 earlyprintk panic=5 rootwait " \
-                            "mtdparts=spi0.0:1M(uboot)ro,128k(dtb)ro,5M(kernel)ro,-(rootfs) ubi.mtd=3 root=ubi0:rootfs rw rootfstype=ubifs"
+                            "mtdparts=spi0.0:1M(uboot)ro,128k(dtb)ro,5M(kernel)ro,80M(rootfs),30M(data) ubi.mtd=3 root=ubi0:rootfs rw rootfstype=ubifs"
+*/
 
 
+#define CONFIG_BOOTARGS    "console=ttyS0,115200 earlyprintk panic=5 rootwait " \
+                            "mtdparts=spi0.0:1M(uboot)ro,128k(dtb)ro,5M(kernel)ro,58M(rootfs),180M(data) ubi.mtd=3 root=ubi0:rootfs rw rootfstype=ubifs"
 /*
  * Include common sunxi configuration where most the settings are
  */

@@ -170,6 +170,16 @@ struct sunxi_nand_config sunxi_known_nands[] = {
 		.page_size = 2048,
 	},
 	{
+		.name = "Winbond W25N02KVxxIR",
+		.jedec_id = 0x00EFAA22,
+		.page_mask = 0x0000FFFF,
+		.page_shift = 11,
+		.addr_mask = 0x7FF,
+		.addr_shift = 0,
+		.block_size = 128 * 1024,
+		.page_size = 2048,
+	},
+	{
 		.name = "GigaDevice GD5F1GQ4RCxxG",
 		.jedec_id = 0x00C8B148, /* 3.3v */
 		.page_mask = 0x00FFFFFF,

@@ -1347,7 +1347,7 @@ int sunxi_simplefb_setup(void *blob)
 	ret = fdt_setup_simplefb_node(blob, offset, sunxi_display->fb_addr,
 				      uc_priv->xsize, uc_priv->ysize,
 				      VNBYTES(uc_priv->bpix) * uc_priv->xsize,
-				      "x8r8g8b8");
+				      "a8r8g8b8");
 	if (ret)
 		eprintf("Cannot setup simplefb: Error setting properties\n");
 
